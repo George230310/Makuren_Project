@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CinematicCamera : MonoBehaviour
@@ -11,7 +8,7 @@ public class CinematicCamera : MonoBehaviour
     private void Start()
     {
         startLocation = gameObject.transform.position;
-        endLocation = startLocation + new Vector3(13f, -1f, 0f);
+        endLocation = startLocation + new Vector3(15f, -1f, 0f);
     }
 
     // Update is called once per frame
