@@ -24,17 +24,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.volume = s.volume;
-            
-            //this is a hack
-            if (Application.platform == RuntimePlatform.WindowsEditor)
-            {
-                s.source.pitch = 1f;
-            }
-            else if (Application.platform == RuntimePlatform.OSXEditor)
-            {
-                s.source.pitch = 3f;
-            }
-            //s.source.pitch = s.pitch;
+            s.source.pitch = s.pitch;
             
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;

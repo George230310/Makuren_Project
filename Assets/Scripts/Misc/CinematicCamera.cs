@@ -4,11 +4,13 @@ public class CinematicCamera : MonoBehaviour
 {
     private Vector3 startLocation;
     private Vector3 endLocation;
+
+    [SerializeField] private Vector3 linearMovementVector;
     
     private void Start()
     {
         startLocation = gameObject.transform.position;
-        endLocation = startLocation + new Vector3(15f, -1f, 0f);
+        endLocation = startLocation + linearMovementVector;
     }
 
     // Update is called once per frame
