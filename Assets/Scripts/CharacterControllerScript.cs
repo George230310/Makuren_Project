@@ -39,7 +39,7 @@ public class CharacterControllerScript : MonoBehaviour
             gravityVec += Physics.gravity;
         }
         
-        _characterController.Move((moveVec + gravityVec) * speed * Time.deltaTime);
+        _characterController.Move((moveVec + gravityVec) * (speed * Time.deltaTime));
     }
 
     private void OnEnable()
