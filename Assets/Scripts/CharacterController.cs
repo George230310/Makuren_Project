@@ -47,7 +47,7 @@ public class CharacterController : MonoBehaviour
         _playerControls.Disable();
     }
     
-    private void FixedUpdate()
+    private void Update()
     {
         Move();
     }
