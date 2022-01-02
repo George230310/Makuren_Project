@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8753630203296474150}
   - component: {fileID: 2686015410902635470}
   - component: {fileID: 2779705535432673321}
-  - component: {fileID: 6453670487875363806}
   - component: {fileID: 6750453825738095512}
   - component: {fileID: 4483991439288530262}
   m_Layer: 0
@@ -104,20 +103,6 @@ MonoBehaviour:
   m_newColors:
   - {r: 0.5372549, g: 0.36862746, b: 0.14117648, a: 1}
   - {r: 0.8078432, g: 0.6313726, b: 0.1764706, a: 1}
---- !u!136 &6453670487875363806
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6519986605444753521}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.79098845
-  m_Height: 3.1250005
-  m_Direction: 1
-  m_Center: {x: -0.20166934, y: 0.85937476, z: 0.04686756}
 --- !u!114 &6750453825738095512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,10 +127,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3.4375
-  m_Radius: 1.5625004
+  m_Height: 1.87
+  m_Radius: 0.55
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
