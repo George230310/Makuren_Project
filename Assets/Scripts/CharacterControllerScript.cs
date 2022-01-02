@@ -1,17 +1,16 @@
-using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class CharacterController : MonoBehaviour
+[RequireComponent(typeof(CharacterController))]
+public class CharacterControllerScript : MonoBehaviour
 {
     private Vector3 _playerMoveInput;
     private PlayerControls _playerControls;
-    private Rigidbody _rigidbody;
+    private CharacterController _characterController;
     [SerializeField] private float speed = 3.0f;
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _characterController = GetComponent<CharacterController>();
         _playerControls = new PlayerControls();
         _playerControls.Enable();
     }
@@ -32,9 +31,8 @@ public class CharacterController : MonoBehaviour
 
     private void Move()
     {
-        Transform transform1;
-        Vector3 moveVec = (transform1 = transform).TransformDirection(_playerMoveInput * speed * Time.deltaTime);
-        _rigidbody.MovePosition(transform1.position + moveVec);
+        Vector3 moveVec = transform.TransformDirection(_playerMoveInput);
+        _characterController.Move(moveVec * speed * Time.deltaTime);
     }
 
     private void OnEnable()
