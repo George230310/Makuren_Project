@@ -46,8 +46,7 @@ public class CharacterController : MonoBehaviour
     {
         _playerControls.Disable();
     }
-
-    // Update is called once per frame
+    
     private void FixedUpdate()
     {
         Move();
