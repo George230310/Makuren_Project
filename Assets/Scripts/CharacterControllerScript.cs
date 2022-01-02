@@ -32,7 +32,14 @@ public class CharacterControllerScript : MonoBehaviour
     private void Move()
     {
         Vector3 moveVec = transform.TransformDirection(_playerMoveInput);
-        _characterController.Move(moveVec * speed * Time.deltaTime);
+        Vector3 gravityVec = Vector3.zero;
+
+        if (!_characterController.isGrounded)
+        {
+            gravityVec += Physics.gravity;
+        }
+        
+        _characterController.Move((moveVec + gravityVec) * speed * Time.deltaTime);
     }
 
     private void OnEnable()
