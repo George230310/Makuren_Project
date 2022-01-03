@@ -8,11 +8,20 @@ public class CharacterControllerScript : MonoBehaviour
     private CharacterController _characterController;
     [SerializeField] private float speed = 3.0f;
 
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+    private bool _isGroundedLastFrame;
+    private float _delayToIdle;
+    private static readonly int Grounded = Animator.StringToHash("Grounded");
+    private static readonly int AnimState = Animator.StringToHash("AnimState");
+
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _playerControls = new PlayerControls();
         _playerControls.Enable();
+        _animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -42,6 +51,51 @@ public class CharacterControllerScript : MonoBehaviour
         _characterController.Move((moveVec + gravityVec) * (speed * Time.deltaTime));
     }
 
+    // currently only supports hero knight's animation
+    // needs to make this probably an interface in the future
+    private void UpdateAnimations()
+    {
+        // check if character just landed on ground
+        if (!_isGroundedLastFrame && _characterController.isGrounded && _animator != null)
+        {
+            _isGroundedLastFrame = true;
+            _animator.SetBool(Grounded, true);
+        }
+        
+        // check if character starts falling
+        if (_isGroundedLastFrame && !_characterController.isGrounded && _animator != null)
+        {
+            _isGroundedLastFrame = false;
+            _animator.SetBool(Grounded, false);
+        }
+        
+        // swap direction of sprite depending on walk direction
+        if (_playerMoveInput.x < 0f && _spriteRenderer!= null)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else if (_playerMoveInput.x > 0f && _spriteRenderer != null)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        
+        // run and idle switch
+        if (_playerMoveInput.magnitude > Mathf.Epsilon)
+        {
+            _delayToIdle = 0.05f;
+            _animator.SetInteger(AnimState, 1);
+        }
+        else
+        {
+            _delayToIdle -= Time.deltaTime;
+            if (_delayToIdle < 0f)
+            {
+                _animator.SetInteger(AnimState, 0);
+            }
+        }
+
+    }
+
     private void OnEnable()
     {
         _playerControls.Enable();
@@ -55,5 +109,6 @@ public class CharacterControllerScript : MonoBehaviour
     private void Update()
     {
         Move();
+        UpdateAnimations();
     }
 }
