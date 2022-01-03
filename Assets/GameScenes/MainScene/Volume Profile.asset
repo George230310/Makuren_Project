@@ -26,15 +26,15 @@ MonoBehaviour:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.013422847
+          value: 0.0026755333
           inSlope: 0
-          outSlope: 1
+          outSlope: 0.76155686
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.8279883
+          time: 0.86032975
           value: 1
           inSlope: -0
           outSlope: -0
@@ -294,12 +294,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.46
+    m_Value: 0.375
     min: 0
     max: 1
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0.304
     min: 0.01
     max: 1
   rounded:
