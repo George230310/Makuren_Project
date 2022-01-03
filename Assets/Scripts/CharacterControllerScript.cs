@@ -96,6 +96,7 @@ public class CharacterControllerScript : MonoBehaviour
             if (_delayToIdle < 0f)
             {
                 _animator.SetInteger(AnimState, 0);
+                _delayToIdle = 0f;
             }
         }
 
