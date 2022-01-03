@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(CharacterController))]
 public class CharacterControllerScript : MonoBehaviour
@@ -7,6 +8,8 @@ public class CharacterControllerScript : MonoBehaviour
     private PlayerControls _playerControls;
     private CharacterController _characterController;
     [SerializeField] private float speed = 3.0f;
+    [SerializeField] private bool receiveShadows;
+    [SerializeField] private bool castShadows;
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -22,6 +25,8 @@ public class CharacterControllerScript : MonoBehaviour
         _playerControls = new PlayerControls();
         _playerControls.Enable();
         _animator = GetComponent<Animator>();
+        _spriteRenderer.receiveShadows = receiveShadows;
+        _spriteRenderer.shadowCastingMode = castShadows? ShadowCastingMode.On : ShadowCastingMode.Off;
     }
 
     // Start is called before the first frame update

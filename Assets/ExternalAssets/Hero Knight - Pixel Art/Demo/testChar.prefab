@@ -43,8 +43,8 @@ SpriteRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6519986605444753521}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b58354c186d9bde42ad2a4ab0545dde9, type: 2}
+  - {fileID: 2100000, guid: 8d4bc15ffa44b4399bd4de871b37e77b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  receiveShadows: 1
+  castShadows: 1
 --- !u!143 &4483991439288530262
 CharacterController:
   m_ObjectHideFlags: 0
